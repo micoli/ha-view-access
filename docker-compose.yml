@@ -1,0 +1,11 @@
+services:
+  homeassistant:
+    image: homeassistant/home-assistant:stable
+    environment:
+      - TZ=Europe/Paris
+    ports:
+      - 8123:8123
+    volumes:
+      - ./.docker/home-assistant/config:/config
+      - ./ha-view-access:/config/custom_components/ha-view-access
+    restart: always

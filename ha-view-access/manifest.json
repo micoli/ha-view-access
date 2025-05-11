@@ -1,0 +1,18 @@
+{
+  "domain": "ha-view-access",
+  "name": "HaViewAccess",
+  "after_dependencies": [
+    "notify"
+  ],
+  "codeowners": [
+    "@micoli"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "http",
+    "panel_custom"
+  ],
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "v0.0.0"
+}

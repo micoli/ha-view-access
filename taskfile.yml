@@ -1,0 +1,19 @@
+version: '3'
+
+tasks:
+  check-environment-variables:
+    cmds:
+      - silent: true
+        cmd: python check-environment-variables.py
+
+  docker-compose-up:
+    cmds:
+    - docker compose -f docker-compose.yml  up -d --build
+
+  docker-compose-down:
+    cmds:
+    - docker compose -f docker-compose.yml down
+
+  docker-compose-logs:
+    cmds:
+    - docker compose logs -f

@@ -1,0 +1,11 @@
+*.DS_Store
+custom_components/pidoorbell/__pycache__/*
+.vscode
+custom_components/pidoorbell/frontend/node_modules
+custom_components/pidoorbell/card/node_modules
+._*
+README.html
+package-lock.json
+custom_components/pidoorbell/__pycache__/*
+*__pycache__**
+*.pyc

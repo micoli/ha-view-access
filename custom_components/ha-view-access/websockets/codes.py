@@ -15,8 +15,8 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class haviewaccessCodeView(HomeAssistantView):
-    url = "/api/haviewaccess/codes"
-    name = "api:haviewaccess:codes"
+    url = "/api/haviewaccess/get_panels"
+    name = "api:haviewaccess:get_panels"
 
     @RequestDataValidator(CodeRequestDataValidator())
     async def post(self, request, data):
@@ -34,9 +34,13 @@ class haviewaccessCodeView(HomeAssistantView):
 @callback
 def websocket_get_codes(hass, connection, msg):
     coordinator = hass.data[const.DOMAIN]["coordinator"]
-    codes = coordinator.store.async_get_codes()
+    result = hass.services.call(
+        "lovelace",
+        "get_panels",
+        {}
+    )
 
-    connection.send_result(msg["id"], codes)
+    connection.send_result(msg["id"], result)
 
 
 def async_register_code(hass):
@@ -45,7 +49,8 @@ def async_register_code(hass):
         hass,
         "haviewaccess/codes",
         websocket_get_codes,
-        websocket_api.BASE_COMMAND_MESSAGE_SCHEMA.extend(
-            {vol.Required("type"): "haviewaccess/codes"}
-        ),
+        None
+        #websocket_api.BASE_COMMAND_MESSAGE_SCHEMA.extend(
+            # {vol.Required("type"): "haviewaccess/codes"}
+        #),
     )

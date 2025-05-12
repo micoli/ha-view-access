@@ -7,5 +7,5 @@ services:
       - 8123:8123
     volumes:
       - ./.docker/home-assistant/config:/config
-      - ./ha-view-access:/config/custom_components/ha-view-access
+      - ./custom_components/ha-view-access:/config/custom_components/ha-view-access
     restart: always

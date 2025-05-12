@@ -6,6 +6,7 @@ let hass: HomeAssistant;
 const getHass = (): HomeAssistant => {
   return hass;
 };
+
 const getApi = () => {
   return axios.create({
     baseURL: hass.hassUrl(),

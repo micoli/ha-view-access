@@ -8,7 +8,7 @@ export default defineConfig({
         InjectCssToJsPlugin(),
     ],
     build: {
-        minify: true,
+        minify: false,
         sourcemap: true,
         rollupOptions: {
             output: {

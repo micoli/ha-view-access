@@ -3,12 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './theme';
 import { CssBaseline } from '@mui/material';
-import App from './App';
-import { setHass } from './Hass';
+import App from '../App';
+import { setHass } from '../Hass';
 import { DialogsProvider } from '@toolpad/core';
-import Box from '@mui/material/Box';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 
 export default () =>
     class extends HTMLElement {
@@ -50,12 +47,10 @@ export default () =>
             this._root.render(
                 <React.StrictMode>
                     <ThemeProvider theme={theme}>
-                        <LocalizationProvider  dateAdapter={AdapterDateFns}>
                             <DialogsProvider>
                                 <CssBaseline />
                                 <App />
                             </DialogsProvider>
-                        </LocalizationProvider>
                     </ThemeProvider>
                 </React.StrictMode>,
             );

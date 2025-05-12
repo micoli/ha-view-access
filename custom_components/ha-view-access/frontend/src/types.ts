@@ -60,37 +60,3 @@ export interface HomeAssistant {
   ) => Promise<void>;
   callWS: <T>(msg: MessageBase) => Promise<T>;
 }
-
-export type haviewaccessConfig = {
-  enabled: boolean;
-  center_label: string;
-  main_message: string;
-  main_sub_message: string;
-};
-
-export type haviewaccessUser = {
-  user_id?: string;
-  name: string;
-  enabled: boolean;
-  first_class_citizen: boolean;
-  sip_uri: string;
-  telegram_id: string;
-  position: number;
-};
-
-export type haviewaccessCode = {
-  code_id?: string;
-  name: string;
-  code: string;
-  expiry: number;
-  comment: string;
-  enabled: boolean;
-};
-
-export type haviewaccessMessage = {
-  message_id?: string;
-  message: string;
-  expiry: number;
-  comment: string;
-  enabled: boolean;
-};
